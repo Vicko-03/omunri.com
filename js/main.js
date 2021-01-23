@@ -1,36 +1,32 @@
- AOS.init({
- 	duration: 800,
- 	easing: 'slide'
- });
+AOS.init({
+	duration: 800,
+	easing: 'slide',
+});
 
-(function($) {
-
-	"use strict";
+(function ($) {
+	'use strict';
 
 	$(window).stellar({
-    responsive: true,
-    parallaxBackgrounds: true,
-    parallaxElements: true,
-    horizontalScrolling: false,
-    hideDistantElements: false,
-    scrollProperty: 'scroll'
-  });
+		responsive: true,
+		parallaxBackgrounds: true,
+		parallaxElements: true,
+		horizontalScrolling: false,
+		hideDistantElements: false,
+		scrollProperty: 'scroll',
+	});
 
-
-	var fullHeight = function() {
-
+	var fullHeight = function () {
 		$('.js-fullheight').css('height', $(window).height());
-		$(window).resize(function(){
+		$(window).resize(function () {
 			$('.js-fullheight').css('height', $(window).height());
 		});
-
 	};
 	fullHeight();
 
 	// loader
-	var loader = function() {
-		setTimeout(function() { 
-			if($('#ftco-loader').length > 0) {
+	var loader = function () {
+		setTimeout(function () {
+			if ($('#ftco-loader').length > 0) {
 				$('#ftco-loader').removeClass('show');
 			}
 		}, 1);
@@ -38,181 +34,182 @@
 	loader();
 
 	// Scrollax
-   $.Scrollax();
+	$.Scrollax();
 
-
-
-   // Burger Menu
-	var burgerMenu = function() {
-
-		$('body').on('click', '.js-fh5co-nav-toggle', function(event){
-
+	// Burger Menu
+	var burgerMenu = function () {
+		$('body').on('click', '.js-fh5co-nav-toggle', function (event) {
 			event.preventDefault();
 
-			if ( $('#ftco-nav').is(':visible') ) {
+			if ($('#ftco-nav').is(':visible')) {
 				$(this).removeClass('active');
 			} else {
-				$(this).addClass('active');	
+				$(this).addClass('active');
 			}
-
-			
-			
 		});
-
 	};
 	burgerMenu();
 
-
-	var onePageClick = function() {
-
-
+	var onePageClick = function () {
 		$(document).on('click', '#ftco-nav a[href^="#"]', function (event) {
-	    event.preventDefault();
+			event.preventDefault();
 
-	    var href = $.attr(this, 'href');
+			var href = $.attr(this, 'href');
 
-	    $('html, body').animate({
-	        scrollTop: $($.attr(this, 'href')).offset().top - 70
-	    }, 500, function() {
-	    	// window.location.hash = href;
-	    });
+			$('html, body').animate(
+				{
+					scrollTop: $($.attr(this, 'href')).offset().top - 70,
+				},
+				500,
+				function () {
+					// window.location.hash = href;
+				}
+			);
 		});
-
 	};
 
 	onePageClick();
-	
 
-	var carousel = function() {
+	var carousel = function () {
 		$('.home-slider').owlCarousel({
-	    loop:true,
-	    autoplay: true,
-	    margin:0,
-	    animateOut: 'fadeOut',
-	    animateIn: 'fadeIn',
-	    nav:false,
-	    autoplayHoverPause: false,
-	    items: 1,
-	    navText : ["<span class='ion-md-arrow-back'></span>","<span class='ion-chevron-right'></span>"],
-	    responsive:{
-	      0:{
-	        items:1
-	      },
-	      600:{
-	        items:1
-	      },
-	      1000:{
-	        items:1
-	      }
-	    }
+			loop: true,
+			autoplay: true,
+			margin: 0,
+			animateOut: 'fadeOut',
+			animateIn: 'fadeIn',
+			nav: false,
+			autoplayHoverPause: false,
+			items: 1,
+			navText: [
+				"<span class='ion-md-arrow-back'></span>",
+				"<span class='ion-chevron-right'></span>",
+			],
+			responsive: {
+				0: {
+					items: 1,
+				},
+				600: {
+					items: 1,
+				},
+				1000: {
+					items: 1,
+				},
+			},
 		});
 		$('.carousel-testimony').owlCarousel({
 			autoplay: true,
 			autoHeight: true,
 			center: true,
 			loop: true,
-			items:1,
+			items: 1,
 			margin: 30,
 			stagePadding: 0,
 			nav: false,
 			dots: true,
-			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
-			responsive:{
-				0:{
-					items: 1
+			navText: [
+				'<span class="ion-ios-arrow-back">',
+				'<span class="ion-ios-arrow-forward">',
+			],
+			responsive: {
+				0: {
+					items: 1,
 				},
-				600:{
-					items: 2
+				600: {
+					items: 2,
 				},
-				1000:{
-					items: 3
-				}
-			}
+				1000: {
+					items: 3,
+				},
+			},
 		});
 		$('.carousel-project').owlCarousel({
 			autoplay: true,
 			autoHeight: true,
 			center: true,
 			loop: true,
-			items:1,
+			items: 1,
 			margin: 30,
 			stagePadding: 0,
 			nav: false,
 			dots: true,
-			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
-			responsive:{
-				0:{
-					items: 1
+			navText: [
+				'<span class="ion-ios-arrow-back">',
+				'<span class="ion-ios-arrow-forward">',
+			],
+			responsive: {
+				0: {
+					items: 1,
 				},
-				600:{
-					items: 2
+				600: {
+					items: 2,
 				},
-				1000:{
-					items: 3
-				}
-			}
+				1000: {
+					items: 3,
+				},
+			},
 		});
-
 	};
 	carousel();
 
-	$('nav .dropdown').hover(function(){
-		var $this = $(this);
-		// 	 timer;
-		// clearTimeout(timer);
-		$this.addClass('show');
-		$this.find('> a').attr('aria-expanded', true);
-		// $this.find('.dropdown-menu').addClass('animated-fast fadeInUp show');
-		$this.find('.dropdown-menu').addClass('show');
-	}, function(){
-		var $this = $(this);
+	$('nav .dropdown').hover(
+		function () {
+			var $this = $(this);
+			// 	 timer;
+			// clearTimeout(timer);
+			$this.addClass('show');
+			$this.find('> a').attr('aria-expanded', true);
+			// $this.find('.dropdown-menu').addClass('animated-fast fadeInUp show');
+			$this.find('.dropdown-menu').addClass('show');
+		},
+		function () {
+			var $this = $(this);
 			// timer;
-		// timer = setTimeout(function(){
+			// timer = setTimeout(function(){
 			$this.removeClass('show');
 			$this.find('> a').attr('aria-expanded', false);
 			// $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
 			$this.find('.dropdown-menu').removeClass('show');
-		// }, 100);
-	});
-
+			// }, 100);
+		}
+	);
 
 	$('#dropdown04').on('show.bs.dropdown', function () {
-	  console.log('show');
+		console.log('show');
 	});
 
 	// scroll
-	var scrollWindow = function() {
-		$(window).scroll(function(){
+	var scrollWindow = function () {
+		$(window).scroll(function () {
 			var $w = $(this),
-					st = $w.scrollTop(),
-					navbar = $('.ftco_navbar'),
-					sd = $('.js-scroll-wrap');
+				st = $w.scrollTop(),
+				navbar = $('.ftco_navbar'),
+				sd = $('.js-scroll-wrap');
 
 			if (st > 150) {
-				if ( !navbar.hasClass('scrolled') ) {
-					navbar.addClass('scrolled');	
+				if (!navbar.hasClass('scrolled')) {
+					navbar.addClass('scrolled');
 				}
-			} 
+			}
 			if (st < 150) {
-				if ( navbar.hasClass('scrolled') ) {
+				if (navbar.hasClass('scrolled')) {
 					navbar.removeClass('scrolled sleep');
 				}
-			} 
-			if ( st > 350 ) {
-				if ( !navbar.hasClass('awake') ) {
-					navbar.addClass('awake');	
+			}
+			if (st > 350) {
+				if (!navbar.hasClass('awake')) {
+					navbar.addClass('awake');
 				}
-				
-				if(sd.length > 0) {
+
+				if (sd.length > 0) {
 					sd.addClass('sleep');
 				}
 			}
-			if ( st < 350 ) {
-				if ( navbar.hasClass('awake') ) {
+			if (st < 350) {
+				if (navbar.hasClass('awake')) {
 					navbar.removeClass('awake');
 					navbar.addClass('sleep');
 				}
-				if(sd.length > 0) {
+				if (sd.length > 0) {
 					sd.removeClass('sleep');
 				}
 			}
@@ -220,153 +217,225 @@
 	};
 	scrollWindow();
 
-	
-
-	var counter = function() {
-		
-		$('#section-counter, .hero-wrap, .ftco-counter').waypoint( function( direction ) {
-
-			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
-
-				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
-				$('.number').each(function(){
-					var $this = $(this),
-						num = $this.data('number');
-						console.log(num);
-					$this.animateNumber(
-					  {
-					    number: num,
-					    numberStep: comma_separator_number_step
-					  }, 7000
+	var counter = function () {
+		$('#section-counter, .hero-wrap, .ftco-counter').waypoint(
+			function (direction) {
+				if (
+					direction === 'down' &&
+					!$(this.element).hasClass('ftco-animated')
+				) {
+					var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(
+						','
 					);
-				});
-				
-			}
-
-		} , { offset: '95%' } );
-
-	}
+					$('.number').each(function () {
+						var $this = $(this),
+							num = $this.data('number');
+						console.log(num);
+						$this.animateNumber(
+							{
+								number: num,
+								numberStep: comma_separator_number_step,
+							},
+							7000
+						);
+					});
+				}
+			},
+			{ offset: '95%' }
+		);
+	};
 	counter();
 
-
-	var contentWayPoint = function() {
+	var contentWayPoint = function () {
 		var i = 0;
-		$('.ftco-animate').waypoint( function( direction ) {
+		$('.ftco-animate').waypoint(
+			function (direction) {
+				if (
+					direction === 'down' &&
+					!$(this.element).hasClass('ftco-animated')
+				) {
+					i++;
 
-			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
-				
-				i++;
-
-				$(this.element).addClass('item-animate');
-				setTimeout(function(){
-
-					$('body .ftco-animate.item-animate').each(function(k){
-						var el = $(this);
-						setTimeout( function () {
-							var effect = el.data('animate-effect');
-							if ( effect === 'fadeIn') {
-								el.addClass('fadeIn ftco-animated');
-							} else if ( effect === 'fadeInLeft') {
-								el.addClass('fadeInLeft ftco-animated');
-							} else if ( effect === 'fadeInRight') {
-								el.addClass('fadeInRight ftco-animated');
-							} else {
-								el.addClass('fadeInUp ftco-animated');
-							}
-							el.removeClass('item-animate');
-						},  k * 50, 'easeInOutExpo' );
-					});
-					
-				}, 100);
-				
-			}
-
-		} , { offset: '95%' } );
+					$(this.element).addClass('item-animate');
+					setTimeout(function () {
+						$('body .ftco-animate.item-animate').each(function (k) {
+							var el = $(this);
+							setTimeout(
+								function () {
+									var effect = el.data('animate-effect');
+									if (effect === 'fadeIn') {
+										el.addClass('fadeIn ftco-animated');
+									} else if (effect === 'fadeInLeft') {
+										el.addClass('fadeInLeft ftco-animated');
+									} else if (effect === 'fadeInRight') {
+										el.addClass('fadeInRight ftco-animated');
+									} else {
+										el.addClass('fadeInUp ftco-animated');
+									}
+									el.removeClass('item-animate');
+								},
+								k * 50,
+								'easeInOutExpo'
+							);
+						});
+					}, 100);
+				}
+			},
+			{ offset: '95%' }
+		);
 	};
 	contentWayPoint();
 
 	// magnific popup
 	$('.image-popup').magnificPopup({
-    type: 'image',
-    closeOnContentClick: true,
-    closeBtnInside: false,
-    fixedContentPos: true,
-    mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
-     gallery: {
-      enabled: true,
-      navigateByImgClick: true,
-      preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-    },
-    image: {
-      verticalFit: true
-    },
-    zoom: {
-      enabled: true,
-      duration: 300 // don't foget to change the duration also in CSS
-    }
-  });
+		type: 'image',
+		closeOnContentClick: true,
+		closeBtnInside: false,
+		fixedContentPos: true,
+		mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+		gallery: {
+			enabled: true,
+			navigateByImgClick: true,
+			preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+		},
+		image: {
+			verticalFit: true,
+		},
+		zoom: {
+			enabled: true,
+			duration: 300, // don't foget to change the duration also in CSS
+		},
+	});
 
-  $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-    disableOn: 700,
-    type: 'iframe',
-    mainClass: 'mfp-fade',
-    removalDelay: 160,
-    preloader: false,
+	$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+		disableOn: 700,
+		type: 'iframe',
+		mainClass: 'mfp-fade',
+		removalDelay: 160,
+		preloader: false,
 
-    fixedContentPos: false
-  });
-
-
+		fixedContentPos: false,
+	});
 
 	// countdown
-	var ncc = new Date("Jun 14, 2020 23:59:00").getTime();
-	var dlbc = new Date("Jul 27, 2019 23:59:00").getTime();
-	var gec = new Date("Jul 26, 2019 23:59:00").getTime();
-	var oce = new Date("Sep 8, 2019 23:59:00").getTime();
-	var smr = new Date("Oct 09, 2020 23:59:00").getTime();
+	var ncc = new Date('Jun 14, 2020 23:59:00').getTime();
+	var dlbc = new Date('Jul 27, 2019 23:59:00').getTime();
+	var gec = new Date('Jul 26, 2019 23:59:00').getTime();
+	var oce = new Date('Sep 8, 2019 23:59:00').getTime();
+	var smr = new Date('Oct 09, 2020 23:59:00').getTime();
 
-	setInterval(function() {
-		var now = new Date().getTime()
-		var nccDistance = ncc - now
-		var nccDays = Math.floor(nccDistance / (1000 * 60 * 60 * 24))
-		var nccHours = Math.floor((nccDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-		var nccMinutes = Math.floor((nccDistance % (1000 * 60 * 60)) / (1000 * 60))
-		var nccSeconds = Math.floor((nccDistance % (1000 * 60)) / 1000)
-		
-		$('#ncc-countdown').html(nccDays + "<span class='mr-2'> Hari</span>" + nccHours + "<span class='mr-2'> Jam</span>"  + nccMinutes + "<span class='mr-2'> Menit</span>" + nccSeconds + "<span class='mr-2'> Detik</span>")
+	setInterval(function () {
+		var now = new Date().getTime();
+		var nccDistance = ncc - now;
+		var nccDays = Math.floor(nccDistance / (1000 * 60 * 60 * 24));
+		var nccHours = Math.floor(
+			(nccDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+		);
+		var nccMinutes = Math.floor((nccDistance % (1000 * 60 * 60)) / (1000 * 60));
+		var nccSeconds = Math.floor((nccDistance % (1000 * 60)) / 1000);
 
-		var dlbcDistance = dlbc - now
-		var dlbcDays = Math.floor(dlbcDistance / (1000 * 60 * 60 * 24))
-		var dlbcHours = Math.floor((dlbcDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-		var dlbcMinutes = Math.floor((dlbcDistance % (1000 * 60 * 60)) / (1000 * 60))
-		var dlbcSeconds = Math.floor((dlbcDistance % (1000 * 60)) / 1000)
-		
-		$('#dlbc-countdown').html(dlbcDays + "<span class='mr-2'> Hari</span>" + dlbcHours + "<span class='mr-2'> Jam</span>"  + dlbcMinutes + "<span class='mr-2'> Jam</span>" + dlbcSeconds + "<span class='mr-2'> Detik</span>")
+		$('#ncc-countdown').html(
+			nccDays +
+				"<span class='mr-2'> Hari</span>" +
+				nccHours +
+				"<span class='mr-2'> Jam</span>" +
+				nccMinutes +
+				"<span class='mr-2'> Menit</span>" +
+				nccSeconds +
+				"<span class='mr-2'> Detik</span>"
+		);
 
-		var gecDistance = gec - now
-		var gecDays = Math.floor(gecDistance / (1000 * 60 * 60 * 24))
-		var gecHours = Math.floor((gecDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-		var gecMinutes = Math.floor((gecDistance % (1000 * 60 * 60)) / (1000 * 60))
-		var gecSeconds = Math.floor((gecDistance % (1000 * 60)) / 1000)
-		
-		$('#gec-countdown').html(gecDays + "<span class='mr-2'> Hari</span>" + gecHours + "<span class='mr-2'> Jam</span>"  + gecMinutes + "<span class='mr-2'> Jam</span>" + gecSeconds + "<span class='mr-2'> Detik</span>")
+		var dlbcDistance = dlbc - now;
+		var dlbcDays = Math.floor(dlbcDistance / (1000 * 60 * 60 * 24));
+		var dlbcHours = Math.floor(
+			(dlbcDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+		);
+		var dlbcMinutes = Math.floor(
+			(dlbcDistance % (1000 * 60 * 60)) / (1000 * 60)
+		);
+		var dlbcSeconds = Math.floor((dlbcDistance % (1000 * 60)) / 1000);
 
-		var oceDistance = oce - now
-		var oceDays = Math.floor(oceDistance / (1000 * 60 * 60 * 24))
-		var oceHours = Math.floor((oceDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-		var oceMinutes = Math.floor((oceDistance % (1000 * 60 * 60)) / (1000 * 60))
-		var oceSeconds = Math.floor((oceDistance % (1000 * 60)) / 1000)
-		
-		$('#oce-countdown').html(oceDays + "<span class='mr-2'> Hari</span>" + oceHours + "<span class='mr-2'> Jam</span>"  + oceMinutes + "<span class='mr-2'> Jam</span>" + oceSeconds + "<span class='mr-2'> Detik</span>")
+		$('#dlbc-countdown').html(
+			dlbcDays +
+				"<span class='mr-2'> Hari</span>" +
+				dlbcHours +
+				"<span class='mr-2'> Jam</span>" +
+				dlbcMinutes +
+				"<span class='mr-2'> Jam</span>" +
+				dlbcSeconds +
+				"<span class='mr-2'> Detik</span>"
+		);
 
-		var cppcDistace = smr- now
-		var cppcDays = Math.floor(cppcDistace / (1000 * 60 * 60 * 24))
-		var cppcHours = Math.floor((cppcDistace % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-		var cppcMinutes = Math.floor((cppcDistace % (1000 * 60 * 60)) / (1000 * 60))
-		var cppcSeconds = Math.floor((cppcDistace % (1000 * 60)) / 1000)
-		
-		$('#smr-countdown').html(cppcDays + "<span class='mr-2'> Hari</span>" + cppcHours + "<span class='mr-2'> Jam</span>"  + cppcMinutes + "<span class='mr-2'> Jam</span>" + cppcSeconds + "<span class='mr-2'> Detik</span>")
-	})
+		var gecDistance = gec - now;
+		var gecDays = Math.floor(gecDistance / (1000 * 60 * 60 * 24));
+		var gecHours = Math.floor(
+			(gecDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+		);
+		var gecMinutes = Math.floor((gecDistance % (1000 * 60 * 60)) / (1000 * 60));
+		var gecSeconds = Math.floor((gecDistance % (1000 * 60)) / 1000);
 
+		$('#gec-countdown').html(
+			gecDays +
+				"<span class='mr-2'> Hari</span>" +
+				gecHours +
+				"<span class='mr-2'> Jam</span>" +
+				gecMinutes +
+				"<span class='mr-2'> Jam</span>" +
+				gecSeconds +
+				"<span class='mr-2'> Detik</span>"
+		);
+
+		var oceDistance = oce - now;
+		var oceDays = Math.floor(oceDistance / (1000 * 60 * 60 * 24));
+		var oceHours = Math.floor(
+			(oceDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+		);
+		var oceMinutes = Math.floor((oceDistance % (1000 * 60 * 60)) / (1000 * 60));
+		var oceSeconds = Math.floor((oceDistance % (1000 * 60)) / 1000);
+
+		$('#oce-countdown').html(
+			oceDays +
+				"<span class='mr-2'> Hari</span>" +
+				oceHours +
+				"<span class='mr-2'> Jam</span>" +
+				oceMinutes +
+				"<span class='mr-2'> Jam</span>" +
+				oceSeconds +
+				"<span class='mr-2'> Detik</span>"
+		);
+
+		var cppcDistace = smr - now;
+		var cppcDays = Math.floor(cppcDistace / (1000 * 60 * 60 * 24));
+		var cppcHours = Math.floor(
+			(cppcDistace % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+		);
+		var cppcMinutes = Math.floor(
+			(cppcDistace % (1000 * 60 * 60)) / (1000 * 60)
+		);
+		var cppcSeconds = Math.floor((cppcDistace % (1000 * 60)) / 1000);
+
+		$('#smr-countdown').html(
+			cppcDays +
+				"<span class='mr-2'> Hari</span>" +
+				cppcHours +
+				"<span class='mr-2'> Jam</span>" +
+				cppcMinutes +
+				"<span class='mr-2'> Jam</span>" +
+				cppcSeconds +
+				"<span class='mr-2'> Detik</span>"
+		);
+	});
 })(jQuery);
 
+// Portfolio details carousel
+$('.portfolio-details-carousel').owlCarousel({
+	autoplay: true,
+	dots: true,
+	loop: true,
+	items: 1,
+});
+
+// Initiate venobox (lightbox feature used in portofilo)
+$(document).ready(function () {
+	$('.venobox').venobox();
+});
