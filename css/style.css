@@ -9854,7 +9854,7 @@ h5,
 }
 
 .ftco-navbar-light .navbar-brand span {
-	color: #db7224;
+	color: #06081f;
 	background: #9ff669;
 	background: -webkit-gradient(
 		left top,
@@ -9916,7 +9916,7 @@ h5,
 	height: 2px;
 	bottom: 0;
 	left: 0;
-	background: #db7224;
+	background: #06081f;
 	visibility: visible;
 	transform: scaleX(0);
 	transition: all 0.3s ease-in-out 0s;
@@ -9967,7 +9967,7 @@ h5,
 .ftco-navbar-light .navbar-nav > .nav-item .nav-link.active {
 	background: transparent;
 	background: none;
-	color: #db7224;
+	color: #06081f;
 }
 
 .ftco-navbar-light .navbar-nav > .nav-item .nav-link.active span:before {
@@ -10067,7 +10067,7 @@ h5,
 }
 
 .ftco-navbar-light.scrolled .nav-link.active {
-	color: #db7224 !important;
+	color: #06081f !important;
 }
 
 .ftco-navbar-light.scrolled.awake {
@@ -10615,9 +10615,9 @@ h5,
 		color-stop(0%, #9ff669),
 		color-stop(100%, #31de79)
 	);
-	background: linear-gradient(135deg, #589eaf 0%, #db7224 100%);
+	background: linear-gradient(135deg, #e0c791 0%, #06081f 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ff669', endColorstr='#31de79', GradientType=1 );
-	border: 1px solid #db7224 !important;
+	border: 1px solid #f1ede6 !important;
 	color: #fff !important;
 }
 
@@ -10938,7 +10938,7 @@ h5,
 }
 
 .ftco-services .nav-link-wrap {
-	background: #db7224;
+	background: #e0c791;
 }
 
 @media (min-width: 768px) {
@@ -10950,7 +10950,7 @@ h5,
 
 @media (max-width: 767.98px) {
 	.ftco-services .nav-link-wrap {
-		background: #db7224;
+		background: #06081f;
 		margin-top: 30px;
 	}
 }
@@ -11033,7 +11033,7 @@ h5,
 		color-stop(0%, #9ff669),
 		color-stop(100%, #31de79)
 	);
-	background: linear-gradient(135deg, #589eaf 0%, #db7224 100%);
+	background: linear-gradient (135deg, #e0c791 0%, #06081f 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ff669', endColorstr='#31de79', GradientType=1 );
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -12290,7 +12290,7 @@ textarea.form-control {
 }
 
 #gallery-section {
-	background-image: linear-gradient(30deg, #325b65, #f48324) !important;
+	background-image: linear-gradient(30deg, #06081f, #e0c791) !important;
 }
 
 #gallery-section h2 {
@@ -12306,7 +12306,7 @@ textarea.form-control {
 }
 
 #about-section {
-	background-image: linear-gradient(30deg, #325b65, #f48324) !important;
+	background-image: linear-gradient(30deg, #06081f, #e0c791) !important;
 }
 
 #about-section h2 {
